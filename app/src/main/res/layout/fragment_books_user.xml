@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".activities.Fragment.CollegeFragment">
+
+
+
+    <EditText
+        android:id="@+id/searchCourse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/shape_edittext01"
+        android:drawableEnd="@drawable/searchicon"
+        android:hint="@string/search_a_course"
+        android:padding="10dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        tools:listitem="@layout/item_for_course"
+        android:layout_below="@+id/searchCourse"
+        android:id="@+id/courseRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
+</RelativeLayout>

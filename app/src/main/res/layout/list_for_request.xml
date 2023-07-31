@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="4dp">
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:id="@+id/imageProfile"
+            android:src="@drawable/profile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:id="@+id/name"
+            android:layout_toEndOf="@+id/imageProfile"
+            android:textSize="14sp"
+            android:text="nameUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_below="@+id/name"
+            android:layout_toEndOf="@+id/imageProfile"
+            android:textSize="14sp"
+            android:text="m@gmail.com"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/Id"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="15dp"
+            android:layout_toStartOf="@+id/accept"
+            android:background="@drawable/btn_save"
+            android:gravity="center"
+            android:text="@string/id"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+
+        <TextView
+            android:layout_marginEnd="5dp"
+            android:id="@+id/gpa"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="15dp"
+            android:layout_toStartOf="@+id/Id"
+            android:background="@drawable/btn_save"
+            android:gravity="center"
+            android:text="@string/gpa"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+
+        <ImageView
+            android:layout_marginStart="20dp"
+            android:layout_toStartOf="@+id/imageDelete"
+            android:id="@+id/accept"
+            android:src="@drawable/sah"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+
+        <ImageView
+            android:id="@+id/imageDelete"
+            android:src="@drawable/delete"
+            android:layout_alignParentEnd="true"
+            android:layout_width="30dp"
+            android:layout_height="40dp"/>
+
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

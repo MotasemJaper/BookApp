@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.AddCollegeActivity">
+
+    <RelativeLayout
+        android:id="@+id/toolbarRL"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_marginTop="10dp">
+
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:background="@android:color/transparent"
+            android:importantForAccessibility="no"
+            android:src="@drawable/backbtn" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="25dp"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/add_college"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="normal" />
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_below="@+id/toolbarRL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_marginStart="16dp"
+                android:id="@+id/txt"
+                android:layout_marginTop="20dp"
+                android:text="Select Image for College (optional)"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:layout_below="@+id/txt"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/imgeCollege"
+                android:layout_marginTop="25dp"
+                android:src="@drawable/add"
+                android:layout_width="130dp"
+                android:layout_height="130dp"/>
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:id="@+id/txtCollege"
+                android:layout_below="@+id/imgeCollege"
+                android:text="@string/enter_a_college_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:hint="@string/college_name"
+                android:id="@+id/addCollegeName"
+                android:layout_marginTop="5dp"
+                android:pointerIcon="alias"
+                android:background="@drawable/shape_edit_profile"
+                android:padding="15dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_below="@+id/txtCollege"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:textColor="@color/white"
+                android:background="@drawable/btn_save"
+                android:layout_marginTop="50dp"
+                android:layout_centerHorizontal="true"
+                android:text="@string/add"
+                android:id="@+id/btnAddCollege"
+                android:layout_below="@+id/addCollegeName"
+                android:layout_width="120dp"
+                android:layout_height="55dp"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

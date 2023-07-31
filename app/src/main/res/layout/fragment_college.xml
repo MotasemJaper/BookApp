@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.Fragment.CollegeFragment">
+
+    <EditText
+        android:id="@+id/searchBook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/shape_edittext01"
+        android:drawableEnd="@drawable/searchicon"
+        android:hint="@string/search_a_college"
+        android:padding="10dp" />
+
+    <TextView
+        android:id="@+id/txtChose"
+        android:layout_below="@+id/searchBook"
+        android:layout_marginStart="15dp"
+        android:textSize="18sp"
+        android:text="@string/chose_your_college"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        tools:listitem="@layout/item_for_college"
+        android:layout_below="@+id/txtChose"
+        android:id="@+id/collegeRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
+</RelativeLayout>

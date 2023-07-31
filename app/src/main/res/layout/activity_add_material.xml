@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.AddCollegeActivity">
+
+    <RelativeLayout
+        android:id="@+id/toolbarRL"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_marginTop="10dp">
+
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:background="@android:color/transparent"
+            android:importantForAccessibility="no"
+            android:src="@drawable/backbtn" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="25dp"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/add_material"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="normal" />
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_below="@+id/toolbarRL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imge"
+                android:layout_marginTop="25dp"
+                android:src="@drawable/add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_below="@+id/addMajorName"
+                android:text="@string/chose_a_college"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                app:drawableEndCompat="@drawable/dropdownarrow"
+                android:textColor="@color/color_btn_no_active"
+                android:hint="@string/chose_a_college"
+                android:id="@+id/ViewCollegeName"
+                android:layout_marginTop="5dp"
+                android:pointerIcon="alias"
+                android:background="@drawable/shape_edit_profile"
+                android:padding="15dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:id="@+id/txtCollegeForCourse"
+                android:layout_below="@+id/addCourseName"
+                android:text="@string/chose_a_major"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                app:drawableEndCompat="@drawable/dropdownarrow"
+                android:hint="@string/chose_a_major"
+                android:id="@+id/ViewMajorName"
+                android:layout_marginTop="5dp"
+                android:pointerIcon="alias"
+                android:background="@drawable/shape_edit_profile"
+                android:padding="15dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:id="@+id/CollegeForMajor"
+                android:layout_below="@+id/BookDescription"
+                android:text="@string/chose_a_course"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                app:drawableEndCompat="@drawable/dropdownarrow"
+                android:hint="@string/chose_a_course"
+                android:id="@+id/ViewCourseName"
+                android:layout_marginTop="5dp"
+                android:pointerIcon="alias"
+                android:background="@drawable/shape_edit_profile"
+                android:padding="15dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:id="@+id/txtCollege"
+                android:layout_below="@+id/imge"
+                android:text="@string/please_select_books"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:hint="@string/chose_a_book"
+                android:id="@+id/ViewBookName"
+                android:layout_marginTop="5dp"
+                android:pointerIcon="alias"
+                android:background="@drawable/shape_edit_profile"
+                android:padding="15dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_below="@+id/txtCollege"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:drawableEndCompat="@drawable/dropdownarrow" />
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:id="@+id/txtBookDescription"
+                android:layout_below="@+id/viewCourseName"
+                android:text="@string/please_select_material_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:hint="@string/slides_summery"
+                android:id="@+id/selectType"
+                android:layout_marginTop="5dp"
+                android:pointerIcon="alias"
+                android:background="@drawable/shape_edit_profile"
+                android:padding="15dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_below="@+id/txtBookDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:id="@+id/txtCollegeForMajor"
+                android:layout_below="@+id/selectType"
+                android:text="@string/select_the_file_you_want_to_upload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:hint="@string/click_here"
+                android:id="@+id/getPdf"
+                android:layout_marginTop="5dp"
+                android:pointerIcon="alias"
+                android:background="@drawable/shape_edit_profile"
+                android:padding="15dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_below="@+id/txtCollegeForMajor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/btn_save"
+                android:layout_marginTop="50dp"
+                android:layout_centerHorizontal="true"
+                android:text="@string/upload"
+                android:id="@+id/btnUploadPdf"
+                android:layout_below="@+id/getPdf"
+                android:layout_width="120dp"
+                android:layout_height="55dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
