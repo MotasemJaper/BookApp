@@ -178,7 +178,8 @@ class BooksUserFragment : Fragment {
    private fun loadLevelOne(majorName: String){
        Log.d("nameMajor", "loadLevelOne: $majorName")
        courseList  = ArrayList()
-       val ref = FirebaseDatabase.getInstance().getReference("Courses").child(majorName).child("1")
+       val ref = FirebaseDatabase.getInstance().getReference("Courses")
+           .child(majorName).child("1")
            .addValueEventListener(object : ValueEventListener {
                override fun onDataChange(snapshot: DataSnapshot) {
                    courseList.clear()
@@ -205,7 +206,8 @@ class BooksUserFragment : Fragment {
     }
    private fun loadLevelTow(majorName: String){
        courseList  = ArrayList()
-       val ref = FirebaseDatabase.getInstance().getReference("Courses").child(majorName).child("2")
+       val ref = FirebaseDatabase.getInstance().getReference("Courses")
+           .child(majorName).child("2")
            .addValueEventListener(object : ValueEventListener {
                override fun onDataChange(snapshot: DataSnapshot) {
 

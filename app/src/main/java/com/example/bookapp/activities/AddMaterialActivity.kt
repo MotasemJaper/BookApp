@@ -80,9 +80,9 @@ class AddMaterialActivity : AppCompatActivity() {
         binding.btnUploadPdf.setOnClickListener {
             validateData()
         }
-        binding.ViewBookName.setOnClickListener {
-            bookPickDialog()
-        }
+//        binding.ViewBookName.setOnClickListener {
+//            bookPickDialog()
+//        }
         binding.getPdf.setOnClickListener {
             pdfPickIntent()
         }
@@ -306,7 +306,7 @@ class AddMaterialActivity : AppCompatActivity() {
 
         alertDialogBuilder.setTitle("Select Material Type..")
         alertDialogBuilder.setCancelable(true)
-        val type = arrayOf("Slides/Summery", "Official Book")
+        val type = arrayOf("Slides/Summery", "Book", "Exams")
         alertDialogBuilder.setItems(type) { dialog, which ->
             typeMaterial = type[which].toString()
             binding.selectType.text = typeMaterial
@@ -337,7 +337,7 @@ class AddMaterialActivity : AppCompatActivity() {
                     courseId = bookArrayList[which].courseId
                     bookDescription = bookArrayList[which].bookDescription
                     Log.d("selectedBookId", "coursePickDialog: $selectedBookId")
-                    binding.ViewBookName.text = selectedBookTitle
+                   // binding.ViewBookName.text = selectedBookTitle
                 }
 
 
@@ -430,7 +430,6 @@ class AddMaterialActivity : AppCompatActivity() {
         return isEmty(binding.ViewCollegeName, "Required") and
                 isEmty(binding.ViewMajorName, "Required") and
                 isEmty(binding.ViewCourseName, "Required") and
-                isEmty(binding.ViewBookName, "Required") and
                 isEmty(binding.selectType, "Required")
     }
 
