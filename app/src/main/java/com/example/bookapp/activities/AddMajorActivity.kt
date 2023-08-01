@@ -84,7 +84,7 @@ class AddMajorActivity : AppCompatActivity() {
         })
     }
 
-    private fun addMajor() {
+    fun addMajor() {
         progressDialog.setMessage("Adding Major info")
         val timestamp = System.currentTimeMillis()
         val uid = firebaseAuth.uid

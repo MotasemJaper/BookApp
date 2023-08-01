@@ -21,7 +21,7 @@ class FilterPdf : Filter {
             constraint = constraint.toString().uppercase()
             val filterModel: ArrayList<ModelPdf> = ArrayList()
             for (i in 0 until filterList.size) {
-                if (filterList[i].nameBook.uppercase().contains(constraint)) {
+                if (filterList[i].nameCourse.uppercase().contains(constraint)) {
                     filterModel.add(filterList[i])
                 }
             }

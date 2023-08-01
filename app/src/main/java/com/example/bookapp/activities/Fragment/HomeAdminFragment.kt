@@ -74,7 +74,6 @@ class HomeAdminFragment : Fragment() {
                     binding.recMostDownloadsAdmin.adapter = adapter
                     val manger = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
                     binding.recMostDownloadsAdmin.layoutManager = manger
-                    adapter.notifyDataSetChanged()
 
                 }
 

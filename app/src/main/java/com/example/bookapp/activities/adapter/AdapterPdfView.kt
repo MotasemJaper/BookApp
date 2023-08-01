@@ -41,7 +41,8 @@ class AdapterPdfView : RecyclerView.Adapter<AdapterPdfView.ViewHolder>, Filterab
     override fun onBindViewHolder(holder: AdapterPdfView.ViewHolder, position: Int) {
 
         val modelPdf = modelPdfList[position]
-        holder.nameBook.text = modelPdf.nameBook
+        val uri = modelPdf.url
+        holder.nameBook.text = modelPdf.nameCourse
         holder.typeMaterial.text = modelPdf.typeMaterial
         holder.itemView.setOnClickListener {
             val intent = Intent(context,DetailBookActivity::class.java)
@@ -53,14 +54,16 @@ class AdapterPdfView : RecyclerView.Adapter<AdapterPdfView.ViewHolder>, Filterab
 
 
         Log.d("url", "onBindViewHolder: ${modelPdf.url}")
+        if (uri != null){
+            MyApplication.loadPdfFromUrlSinglePage(
+                modelPdf.url,
+                modelPdf.nameBook,
+                holder.pdfView,
+                holder.progressBar,
+                null
+            )
+        }
 
-        MyApplication.loadPdfFromUrlSinglePage(
-            modelPdf.url,
-            modelPdf.nameBook,
-            holder.pdfView,
-            holder.progressBar,
-            null
-        )
 
     }
 

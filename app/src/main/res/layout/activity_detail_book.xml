@@ -233,7 +233,8 @@
                     android:layout_height="wrap_content"/>
 
                 <LinearLayout
-                    android:layout_marginTop="20dp"
+                    android:background="@drawable/shape_for_down_read"
+                    android:layout_marginTop="40dp"
                     android:layout_below="@+id/desBook"
                     android:layout_marginBottom="20dp"
                     android:layout_marginStart="20dp"
@@ -241,30 +242,28 @@
                     android:orientation="horizontal"
                     android:id="@+id/bookOptionsLl"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="70dp">
 
 
-                    <Button
+                    <TextView
+                        android:gravity="center"
                         android:layout_gravity="center"
                         android:drawablePadding="2dp"
                         android:layout_margin="5dp"
-                        android:padding="5dp"
                         android:textColor="@color/white"
-                        android:background="@drawable/btn_shape_dark"
-                        android:drawableTop="@drawable/openbook"
+                        android:drawableTop="@drawable/rejpeg"
                         android:layout_weight="1"
                         android:text="@string/read"
                         android:id="@+id/readBookBtn"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"/>
 
-                    <Button
+                    <TextView
+                        android:gravity="center"
                         android:layout_gravity="center"
-                        android:drawablePadding="5dp"
                         android:layout_margin="5dp"
                         android:padding="10dp"
                         android:textColor="@color/white"
-                        android:background="@drawable/btn_shape_dark"
                         android:drawableTop="@drawable/download"
                         android:layout_weight="1"
                         android:text="@string/download"

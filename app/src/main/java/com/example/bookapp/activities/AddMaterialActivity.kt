@@ -73,7 +73,6 @@ class AddMaterialActivity : AppCompatActivity() {
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Please Wait...")
         progressDialog.setCanceledOnTouchOutside(false)
-
         binding.backBtn.setOnClickListener {
             onBackPressed()
         }
@@ -81,7 +80,7 @@ class AddMaterialActivity : AppCompatActivity() {
             validateData()
         }
 //        binding.ViewBookName.setOnClickListener {
-//            bookPickDialog()
+//
 //        }
         binding.getPdf.setOnClickListener {
             pdfPickIntent()
@@ -176,6 +175,9 @@ class AddMaterialActivity : AppCompatActivity() {
                 bookArrayList.clear()
                 for (ds in snapshot.children) {
                     val idBook = ds.getValue(ModelBook::class.java)
+                    bookId = idBook!!.id
+                    bookDescription = idBook.bookDescription
+                    nameBook = idBook.bookName
                     bookArrayList.add(idBook!!)
                 }
             }
@@ -342,7 +344,7 @@ class AddMaterialActivity : AppCompatActivity() {
 
 
             }
-            .show()
+
     }
 
     private fun coursePickDialog() {

@@ -27,8 +27,8 @@ class AddCollegeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAddCollegeBinding
 
-    private lateinit var firebaseAuth: FirebaseAuth
-    private lateinit var progressDialog: ProgressDialog
+    lateinit var firebaseAuth: FirebaseAuth
+    lateinit var progressDialog: ProgressDialog
     private var imageUri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,7 +54,7 @@ class AddCollegeActivity : AppCompatActivity() {
         }
     }
 
-    private var college = ""
+    var college = ""
 
     private fun validateData() {
 
@@ -75,7 +75,7 @@ class AddCollegeActivity : AppCompatActivity() {
         }
     }
 
-    private fun addCollageFirebase(uri: String) {
+    fun addCollageFirebase(uri: String) {
         progressDialog.show()
         val timestamp = System.currentTimeMillis()
         val hasMap = HashMap<String, Any>()
@@ -221,6 +221,10 @@ class AddCollegeActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
+    }
+
+    fun showToast(s: String) {
+
     }
 
 

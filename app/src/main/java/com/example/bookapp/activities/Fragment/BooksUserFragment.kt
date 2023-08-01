@@ -189,7 +189,7 @@ class BooksUserFragment : Fragment {
                        courseList.add(model!!)
                    }
 
-                   adapterCourse = AdapterViewCourse(requireContext(),courseList)
+                   adapterCourse = AdapterViewCourse(context!!,courseList)
                    binding.courseRecycler.adapter = adapterCourse
                    val manger = GridLayoutManager(context,2)
                    binding.courseRecycler.layoutManager = manger
