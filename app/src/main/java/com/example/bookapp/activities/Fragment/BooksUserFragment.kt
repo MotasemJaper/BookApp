@@ -120,29 +120,20 @@ class BooksUserFragment : Fragment {
 
         when (level) {
             "Level 1" -> {
-
                 loadLevelOne(majorName)
-
             }
             "Level 2" -> {
-
                 loadLevelTow(majorName)
 
             }
             "Level 3" -> {
-
                 loadLevelThree(majorName)
-
             }
             "Level 4" -> {
 
                 loadLevelFour(majorName)
-
             }
-
             "Level 5" -> {
-
-
                 loadLevelFive(majorName)
 
             }

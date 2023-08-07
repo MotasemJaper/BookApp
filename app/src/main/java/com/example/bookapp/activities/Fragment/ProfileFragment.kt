@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.bookapp.R
 import com.example.bookapp.activities.AboutActivity
@@ -32,7 +33,12 @@ class ProfileFragment : Fragment() {
     ): View? {
         binding = FragmentProfileBinding.inflate(layoutInflater)
         firebaseAuth = FirebaseAuth.getInstance()
-        loadUserInfo()
+        if (firebaseAuth.currentUser != null){
+            loadUserInfo()
+        }else{
+            Toast.makeText(context, "you must login !!", Toast.LENGTH_SHORT).show()
+        }
+
         binding.btnLogout.setOnClickListener {
             firebaseAuth.signOut()
             startActivity(Intent(requireContext(),LoginActivity::class.java))

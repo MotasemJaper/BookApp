@@ -19,7 +19,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class AddCourseActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityAddCourseBinding
+    lateinit var binding: ActivityAddCourseBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var progressDialog: ProgressDialog
     private lateinit var majorArrayList: ArrayList<ModelMajor>
@@ -115,7 +115,6 @@ class AddCourseActivity : AppCompatActivity() {
                 progressDialog.dismiss()
                 Toast.makeText(this@AddCourseActivity, "Added...", Toast.LENGTH_SHORT).show()
                 binding.addCourseName.text.clear()
-
             }
             .addOnFailureListener { e ->
                 progressDialog.dismiss()
@@ -254,5 +253,15 @@ class AddCourseActivity : AppCompatActivity() {
             }
         }
         return isDone
+    }
+
+    companion object {
+        fun addCourse(
+            mockFirebaseAuth: FirebaseAuth,
+            mockFirebaseDatabase: FirebaseDatabase,
+            courseData: java.util.HashMap<String,Any>
+        ) {
+
+        }
     }
 }

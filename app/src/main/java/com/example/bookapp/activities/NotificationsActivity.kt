@@ -52,11 +52,8 @@ class NotificationsActivity : AppCompatActivity() {
                     binding.recyclerNotifications.layoutManager = manger
                     adapterNoti.notifyDataSetChanged()
                 }
-
             }
-
             override fun onCancelled(error: DatabaseError) {
-
 
             }
         })

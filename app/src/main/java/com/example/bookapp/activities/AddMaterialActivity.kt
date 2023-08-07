@@ -248,10 +248,8 @@ class AddMaterialActivity : AppCompatActivity() {
                 progressDialog.dismiss()
                 Toast.makeText(this@AddMaterialActivity, "Uploaded...", Toast.LENGTH_SHORT).show()
                 pdfUri = null
-
             }
             .addOnFailureListener { e ->
-
                 progressDialog.dismiss()
                 Toast.makeText(
                     this@AddMaterialActivity,

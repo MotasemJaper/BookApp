@@ -11,10 +11,16 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/sp"
-        android:label="@string/app_name"
+        android:label="مساقاتي"
         android:supportsRtl="true"
         android:theme="@style/Theme.BookApp"
         tools:targetApi="31">
+        <activity
+            android:name=".activities.DeatilActivityForAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AllMessageActivityForAdmin"
+            android:exported="false" />
         <activity
             android:name=".activities.EditCourseActivity"
             android:exported="false" />
@@ -123,7 +129,7 @@
             android:value="YOUR_WEB_CLIENT_ID" />
 
         <service
-            android:name=".activities.Notifications.FirebaseMessagingService"
+            android:name=".activities.Notifications.FirebaseMessaging"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />

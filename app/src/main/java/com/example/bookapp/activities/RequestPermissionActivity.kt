@@ -66,8 +66,6 @@ class RequestPermissionActivity : AppCompatActivity() {
                     "Thank You For Send Request !!",
                     Toast.LENGTH_SHORT
                 ).show()
-
-
             }
         }.addOnFailureListener { e ->
             Toast.makeText(this@RequestPermissionActivity, "${e.message}", Toast.LENGTH_SHORT).show()

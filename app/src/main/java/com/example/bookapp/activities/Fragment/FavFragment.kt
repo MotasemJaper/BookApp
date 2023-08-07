@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.bookapp.R
 import com.example.bookapp.activities.Model.ModelPdf
@@ -38,7 +39,14 @@ class FavFragment : Fragment() {
         binding = FragmentFavBinding.inflate(layoutInflater)
         mAuth = FirebaseAuth.getInstance()
         favList = ArrayList()
-        loadNameFav()
+
+        mAuth = FirebaseAuth.getInstance()
+        if (mAuth.currentUser != null){
+            loadNameFav()
+        }else{
+            Toast.makeText(context, "you must login !!", Toast.LENGTH_SHORT).show()
+        }
+
 
         binding.searchCourse.addTextChangedListener(object : TextWatcher {
 
@@ -57,36 +65,6 @@ class FavFragment : Fragment() {
         })
 
         return binding.root
-    }
-
-
-    private fun loadAllFav(idCourse: String) {
-
-        val ref = FirebaseDatabase.getInstance().getReference("PdfForTowRelation")
-            .orderByChild("id").equalTo(idCourse).limitToLast(10)
-        ref.addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    favList.clear()
-                    for (ds in snapshot.children) {
-                        val model = ds.getValue(ModelPdf::class.java)
-                        Log.d("nameBook", "onDataChange: ${model!!.nameBook}")
-                        Log.d("nameBook", "onDataChange: ${model!!.id}")
-                        favList.add(model!!)
-
-                        adapterFav = AdapterPdfView(requireContext(), favList)
-                        val manger = GridLayoutManager(requireContext(), 3)
-                        binding.recyclerFav.adapter = adapterFav
-                        binding.recyclerFav.layoutManager = manger
-
-                    }
-
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-
-
-                }
-            })
     }
 
     private fun loadNameFav() {
@@ -108,5 +86,29 @@ class FavFragment : Fragment() {
             }
         })
     }
+
+    private fun loadAllFav(idCourse: String) {
+        val ref = FirebaseDatabase.getInstance().getReference("PdfForTowRelation")
+            .orderByChild("id").equalTo(idCourse)
+        ref.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    favList.clear()
+                    for (ds in snapshot.children) {
+                        val model = ds.getValue(ModelPdf::class.java)
+                        Log.d("nameBook", "onDataChange: ${model!!.nameBook}")
+                        Log.d("nameBook", "onDataChange: ${model!!.id}")
+                        favList.add(model!!)
+                        adapterFav = AdapterPdfView(requireContext(), favList)
+                        val manger = GridLayoutManager(requireContext(), 3)
+                        binding.recyclerFav.adapter = adapterFav
+                        binding.recyclerFav.layoutManager = manger
+                    }
+                }
+                override fun onCancelled(error: DatabaseError) {
+                }
+            })
+    }
+
+
 
 }

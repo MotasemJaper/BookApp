@@ -118,17 +118,13 @@ class RegisterActivity : AppCompatActivity() {
         hashmap["profileImage"] = ""
         hashmap["userType"] = "user"
         hashmap["timestamp"] = timestamp
-
         val ref = FirebaseDatabase.getInstance().getReference("Users")
-        ref.child(uId!!)
-            .setValue(hashmap)
-            .addOnSuccessListener {
+        ref.child(uId!!).setValue(hashmap).addOnSuccessListener {
                 progressDialog.dismiss()
                 Toast.makeText(this, "Account Created", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this@RegisterActivity, DashboredUserActivity::class.java))
                 finish()
-            }
-            .addOnFailureListener { e ->
+            }.addOnFailureListener { e ->
                 progressDialog.dismiss()
                 Toast.makeText(this, "Failed saving user due to ${e.message}", Toast.LENGTH_SHORT).show()
             }

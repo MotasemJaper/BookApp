@@ -8,14 +8,16 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.provider.MediaStore
 import android.view.Menu
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import com.example.bookapp.databinding.ActivityAddCollegeBinding
 import com.google.android.gms.tasks.Task
@@ -23,9 +25,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 
-class AddCollegeActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityAddCollegeBinding
+public class AddCollegeActivity : AppCompatActivity() {
+
+    public lateinit var binding: ActivityAddCollegeBinding
 
     lateinit var firebaseAuth: FirebaseAuth
     lateinit var progressDialog: ProgressDialog
@@ -35,7 +38,6 @@ class AddCollegeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAddCollegeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         firebaseAuth = FirebaseAuth.getInstance()
 
@@ -56,7 +58,7 @@ class AddCollegeActivity : AppCompatActivity() {
 
     var college = ""
 
-    private fun validateData() {
+    fun validateData() {
 
         college = binding.addCollegeName.text.toString().trim()
         if (college.isEmpty()) {
@@ -84,22 +86,17 @@ class AddCollegeActivity : AppCompatActivity() {
         hasMap["imageUri"] = "$uri"
         hasMap["timestamp"] = "$timestamp"
         hasMap["uid"] = "${firebaseAuth.uid}"
-
         val ref = FirebaseDatabase.getInstance().getReference("Colleges")
         ref.child("$timestamp").setValue(hasMap)
             .addOnSuccessListener {
-
                 progressDialog.dismiss()
                 Toast.makeText(this@AddCollegeActivity, "Added successfully...", Toast.LENGTH_SHORT)
                     .show()
                 binding.addCollegeName.text.clear()
 
-
             }.addOnFailureListener { e ->
-
                 progressDialog.dismiss()
                 Toast.makeText(this@AddCollegeActivity, "${e.message}.", Toast.LENGTH_SHORT).show()
-
             }
 
         val hashNoti = HashMap<String, Any>()
@@ -112,7 +109,7 @@ class AddCollegeActivity : AppCompatActivity() {
 
     }
 
-    private fun createNotificationChannel() {
+    public fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channelId = "channel_id"
             val channelName = "$college" + " Added"
@@ -199,7 +196,7 @@ class AddCollegeActivity : AppCompatActivity() {
         },
     )
 
-    private fun uploadImageForCollege() {
+    fun uploadImageForCollege() {
         progressDialog.setMessage("Uploading College..")
         progressDialog.show()
 

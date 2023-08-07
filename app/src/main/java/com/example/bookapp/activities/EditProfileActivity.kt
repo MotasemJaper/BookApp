@@ -44,7 +44,12 @@ class EditProfileActivity : AppCompatActivity() {
         progressDialog.setCanceledOnTouchOutside(false)
 
         firebaseAuth = FirebaseAuth.getInstance()
-        loadUserInfo()
+        firebaseAuth = FirebaseAuth.getInstance()
+        if (firebaseAuth.currentUser != null){
+            loadUserInfo()
+        }else{
+            Toast.makeText(this, "you must login !!", Toast.LENGTH_SHORT).show()
+        }
         binding.backBtn.setOnClickListener {
             onBackPressed()
         }

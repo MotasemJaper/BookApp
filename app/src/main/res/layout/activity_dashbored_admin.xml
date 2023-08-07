@@ -39,9 +39,19 @@
             android:layout_alignParentEnd="true"
             android:src="@drawable/notification"
             android:background="@android:color/transparent"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="50dp"
             android:layout_centerVertical="true"
             android:id="@+id/notiBtn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"/>
+
+        <ImageButton
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/question"
+            android:background="@android:color/transparent"
+            android:layout_marginEnd="10sp"
+            android:layout_centerVertical="true"
+            android:id="@+id/questios"
             android:layout_width="40dp"
             android:layout_height="40dp"/>
 
@@ -116,14 +126,14 @@
                 app:fab_label="@string/add_course"/>
 
 
-            <com.github.clans.fab.FloatingActionButton
-                app:fab_colorPressed="@color/white"
-                app:fab_colorNormal="@color/white"
-                android:id="@+id/fab_addBook"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/openbook"
-                app:fab_label="@string/add_book"/>
+<!--            <com.github.clans.fab.FloatingActionButton-->
+<!--                app:fab_colorPressed="@color/white"-->
+<!--                app:fab_colorNormal="@color/white"-->
+<!--                android:id="@+id/fab_addBook"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/openbook"-->
+<!--                app:fab_label="@string/add_book"/>-->
 
             <com.github.clans.fab.FloatingActionButton
                 app:fab_colorPressed="@color/white"

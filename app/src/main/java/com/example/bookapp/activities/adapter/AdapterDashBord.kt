@@ -52,8 +52,8 @@ class AdapterDashBord : RecyclerView.Adapter<AdapterDashBord.ViewHolder> , Filte
         var name: TextView = binding.name
         var email: TextView = binding.email
         var imageProfile: ImageView = binding.imageProfile
-        var imageDelete: ImageView = binding.imageDelete
-        var ktt: ImageView = binding.ktt
+//        var imageDelete: ImageView = binding.imageDelete
+//        var ktt: ImageView = binding.ktt
         var type: TextView = binding.type
     }
 

@@ -26,11 +26,14 @@ class AdapterPdfView : RecyclerView.Adapter<AdapterPdfView.ViewHolder>, Filterab
     private var filterList: ArrayList<ModelPdf>
     private  var  filter : FilterPdf?= null
 
+
     constructor(context: Context, modelPdf: ArrayList<ModelPdf>) : super() {
         this.context = context
         this.modelPdfList = modelPdf
         this.filterList = modelPdf
     }
+
+
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterPdfView.ViewHolder {

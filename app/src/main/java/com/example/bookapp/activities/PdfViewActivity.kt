@@ -74,7 +74,7 @@ class PdfViewActivity : AppCompatActivity() {
 
     }
 
-    private fun loadBookView(courseIdForPdfView: String) {
+    public fun loadBookView(courseIdForPdfView: String) {
         val ref = FirebaseDatabase.getInstance().getReference("Pdf")
             .child(courseIdForPdfView)
             .orderByChild("typeMaterial").equalTo("Book")

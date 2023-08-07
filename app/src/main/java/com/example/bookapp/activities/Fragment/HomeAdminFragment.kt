@@ -69,53 +69,36 @@ class HomeAdminFragment : Fragment() {
                         val model = ds.getValue(ModelPdf::class.java)
                         lis.add(model!!)
                     }
-
                     adapter = AdapterPdfView(context!!,lis)
                     binding.recMostDownloadsAdmin.adapter = adapter
                     val manger = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
                     binding.recMostDownloadsAdmin.layoutManager = manger
-
                 }
-
                 override fun onCancelled(error: DatabaseError) {
-
-
-
                 }
             })
     }
 
     private fun loadMostViewedBooks(orderBy: String) {
-
         lis = ArrayList()
         val ref = FirebaseDatabase.getInstance().getReference("PdfForTowRelation")
         ref.orderByChild(orderBy).limitToFirst(10)
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-
                     lis.clear()
                     for (ds in snapshot.children){
                         val model = ds.getValue(ModelPdf::class.java)
                         lis.add(model!!)
                     }
-
                     adapter = AdapterPdfView(context!!,lis)
                     binding.mostViewsAdmin.adapter = adapter
                     val manger = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
                     binding.mostViewsAdmin.layoutManager = manger
                     adapter.notifyDataSetChanged()
-
                 }
-
                 override fun onCancelled(error: DatabaseError) {
-
-
-
                 }
             })
     }
-
-
-
 
 }

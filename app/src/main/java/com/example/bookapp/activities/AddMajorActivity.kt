@@ -104,10 +104,8 @@ class AddMajorActivity : AppCompatActivity() {
                 progressDialog.dismiss()
                 Toast.makeText(this@AddMajorActivity, "Added...", Toast.LENGTH_SHORT).show()
                 binding.addMajorName.text.clear()
-
             }
             .addOnFailureListener { e ->
-
                 Log.d(TAG, "uploadPdfToStorage: Failed to upload due  to ${e.message}")
                 progressDialog.dismiss()
                 Toast.makeText(

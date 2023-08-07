@@ -69,9 +69,7 @@ class MajorsActivity : AppCompatActivity() {
                 }
 
             }
-
             override fun onCancelled(error: DatabaseError) {
-
 
             }
         })

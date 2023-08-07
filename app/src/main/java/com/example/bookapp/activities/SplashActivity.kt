@@ -42,7 +42,6 @@ class SplashActivity : AppCompatActivity() {
                 .addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         val userType = snapshot.child("userType").value
-
                         if (userType == "user") {
                             startActivity(Intent(this@SplashActivity, DashboredUserActivity::class.java))
                             finish()
@@ -53,7 +52,6 @@ class SplashActivity : AppCompatActivity() {
                             startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
                         }
                     }
-
                     override fun onCancelled(error: DatabaseError) {
                         Toast.makeText(this@SplashActivity, "${error.message}", Toast.LENGTH_SHORT).show()
                     }

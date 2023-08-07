@@ -129,4 +129,7 @@
     <string name="book">Book</string>
     <string name="exams">Exams</string>
     <string name="edit_course">Edit Course</string>
+    <string name="all_message">All Message</string>
+    <string name="file_pdf">File PDF</string>
+    <string name="upload_pdf_url">Upload Pdf Url</string>
 </resources>

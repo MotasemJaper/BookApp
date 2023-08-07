@@ -85,6 +85,10 @@ class DashboredAdminActivity : AppCompatActivity() {
             }
         }
 
+        binding.questios.setOnClickListener {
+            startActivity(Intent(this@DashboredAdminActivity,AllMessageActivityForAdmin::class.java))
+        }
+
         binding.notiBtn.setOnClickListener {
             startActivity(Intent(this@DashboredAdminActivity,NotificationsActivity::class.java))
         }
@@ -100,9 +104,9 @@ class DashboredAdminActivity : AppCompatActivity() {
         binding.fabAddCourse.setOnClickListener {
             startActivity(Intent(this@DashboredAdminActivity,AddCourseActivity::class.java))
         }
-        binding.fabAddBook.setOnClickListener {
-            startActivity(Intent(this@DashboredAdminActivity,AddBookActivity::class.java))
-        }
+//        binding.fabAddBook.setOnClickListener {
+//            startActivity(Intent(this@DashboredAdminActivity,AddBookActivity::class.java))
+//        }
         binding.fabAddMaterial.setOnClickListener {
             startActivity(Intent(this@DashboredAdminActivity,AddMaterialActivity::class.java))
         }

@@ -73,21 +73,26 @@ class AdapterViewCollege : RecyclerView.Adapter<AdapterViewCollege.ViewHolder>, 
         }
 
         mAuth =FirebaseAuth.getInstance()
-        val ref  = FirebaseDatabase.getInstance().getReference("Users").child(mAuth.uid!!)
-        ref.addListenerForSingleValueEvent(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val user = snapshot.child("userType").value.toString()
-                if (user.equals("user")){
-                    holder.menuCollege.visibility = View.INVISIBLE
+        if (mAuth.currentUser != null){
+            val ref  = FirebaseDatabase.getInstance().getReference("Users").child(mAuth.uid!!)
+            ref.addListenerForSingleValueEvent(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val user = snapshot.child("userType").value.toString()
+                    if (user.equals("user")){
+                        holder.menuCollege.visibility = View.INVISIBLE
+                    }
+
                 }
 
-            }
-
-            override fun onCancelled(error: DatabaseError) {
+                override fun onCancelled(error: DatabaseError) {
 
 
-            }
-        })
+                }
+            })
+        }else{
+            Toast.makeText(context, "you must login!!", Toast.LENGTH_SHORT).show()
+        }
+
 
         holder.menuCollege.setOnClickListener {
             moreOptionDialog(college,holder)

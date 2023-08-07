@@ -95,12 +95,10 @@ class AdapterViewRequest : RecyclerView.Adapter<AdapterViewRequest.ViewHolder>, 
     }
 
     private fun accapetRequest(id: String) {
-
         val process = ProgressDialog(context)
         process.setMessage("Please Wait !!")
         process.setCancelable(false)
         process.show()
-
         val hasMap = HashMap<String, Any?>()
         hasMap["userType"] = "admin"
         val ref = FirebaseDatabase.getInstance().getReference("Users").child(id)
@@ -111,9 +109,7 @@ class AdapterViewRequest : RecyclerView.Adapter<AdapterViewRequest.ViewHolder>, 
                 process.dismiss()
                 Toast.makeText(context, "Done !!", Toast.LENGTH_SHORT).show()
             }
-        }
-
-            .addOnFailureListener { e ->
+        }.addOnFailureListener { e ->
                 process.dismiss()
                 Toast.makeText(context, "${e.message}", Toast.LENGTH_SHORT).show()
             }

@@ -14,15 +14,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.bookapp.activities.CoursesActivity
 import com.example.bookapp.activities.EditCourseActivity
-import com.example.bookapp.activities.EditMajorActivity
 import com.example.bookapp.activities.Filters.FilterCourse
 import com.example.bookapp.activities.Model.ModelCourse
-import com.example.bookapp.activities.Model.ModelMajor
 import com.example.bookapp.activities.PdfViewActivity
 import com.example.bookapp.databinding.ItemForCourseBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class AdapterViewCourse: RecyclerView.Adapter<AdapterViewCourse.ViewHolder> , Filterable {
     private lateinit var binding: ItemForCourseBinding
@@ -30,6 +31,7 @@ class AdapterViewCourse: RecyclerView.Adapter<AdapterViewCourse.ViewHolder> , Fi
     public var modelCourse: ArrayList<ModelCourse>
     private var filterList: ArrayList<ModelCourse>
     private  var  filter : FilterCourse?= null
+    private lateinit var mAuth: FirebaseAuth
 
     constructor(context: Context, modelCourse: ArrayList<ModelCourse>){
         this.context = context
@@ -61,6 +63,28 @@ class AdapterViewCourse: RecyclerView.Adapter<AdapterViewCourse.ViewHolder> , Fi
             context.startActivity(intent)
         }
 
+        mAuth = FirebaseAuth.getInstance()
+        if (mAuth.currentUser != null){
+            val ref  = FirebaseDatabase.getInstance().getReference("Users").child(mAuth.uid!!)
+            ref.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val user = snapshot.child("userType").value.toString()
+                    if (user.equals("user")){
+                        holder.menuCourse.visibility = View.INVISIBLE
+                    }
+
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+
+                }
+            })
+        }else{
+            Toast.makeText(context, "you must login !!", Toast.LENGTH_SHORT).show()
+        }
+
+
         holder.menuCourse.setOnClickListener {
             moreOptionDialog(course,holder)
         }
@@ -70,7 +94,6 @@ class AdapterViewCourse: RecyclerView.Adapter<AdapterViewCourse.ViewHolder> , Fi
     }
 
     private fun moreOptionDialog(model: ModelCourse, holder: AdapterViewCourse.ViewHolder) {
-
         val majorName = model.majorName
         val courseName = model.courseName
         val id = model.id
@@ -89,19 +112,19 @@ class AdapterViewCourse: RecyclerView.Adapter<AdapterViewCourse.ViewHolder> , Fi
 
                 }else if (position == 1){
 
-                    deleteMajors(courseName,model.id)
+                    deleteCourse(courseName,model.id)
 
                 }
             }
             .show()
     }
 
-    private fun deleteMajors(courseName: String, id: String) {
+    public fun deleteCourse(courseName: String, id: String) {
         val progressDialog = ProgressDialog(context)
         progressDialog.setMessage("please wait !!")
         progressDialog.setCancelable(false)
         progressDialog.show()
-        Log.d("courseName", "deleteMajors: $courseName")
+        Log.d("courseName", "deleteCourse: $courseName")
         val ref = FirebaseDatabase.getInstance().getReference("Courses").child(courseName)
         ref.removeValue().addOnCompleteListener {task->
             if (task.isSuccessful){

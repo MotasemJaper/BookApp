@@ -13,10 +13,10 @@ import com.google.firebase.database.ValueEventListener
 
 class EditMajorActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityEditMajorBinding
+    lateinit var binding: ActivityEditMajorBinding
     var id :String = ""
     var collegeName :String = ""
-    private lateinit var progressDialog: ProgressDialog
+    lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,7 +57,7 @@ class EditMajorActivity : AppCompatActivity() {
             }
         })
     }
-    private fun updateMajorName(){
+    fun updateMajorName(){
         progressDialog.show()
         val hasMap = HashMap<String,Any?>()
         hasMap["majorName"] = "${binding.addMajorName.text.trim()}"
